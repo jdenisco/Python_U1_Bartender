@@ -5,15 +5,17 @@
 #   file: bartender
 #   date: 2014-09-29
 #   author: jdenisco
-#   email: james.denisco@genesys.com
+#   email: jimd@jdenisco.com
 #
-# Copyright © 2014 jdenisco <james.denisco@genesys.com>
+# Copyright © 2014 jdenisco <jimd@jdenisco.com>
 #
 
 """
 Description:
 """
+import random
 
+like = {}
 questions = {
     "strong": "Do ye like yer drinks strong?",
     "salty": "Do ye like it with a salty tang?",
@@ -30,3 +32,30 @@ ingredients = {
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"]
 }
 
+print('Please anwser the following questions with a y|yes or n|no.')
+def ask():
+    try: 
+        for x in questions.keys():
+            respond=raw_input(questions[x])
+            if respond.lower() == 'y' or respond.lower() == 'yes':
+                like[x] = 'True'
+        return like
+
+    except Exception:
+        pass
+
+def createdrink(like):
+    try:
+        print('\n\n')
+        for y,z in like.items():
+            print random.choice(ingredients[y])
+
+
+    except Exception:
+        pass
+        
+
+
+ask()
+createdrink(like)
+print('\n\n')
