@@ -10,7 +10,7 @@
 # Copyright © 2014 jdenisco <jimd@jdenisco.com>
 #
 
-## TODO cleanup, Add documention, more error checking
+# TODO cleanup, Add documention, more error checking
 
 """
 Description:
@@ -34,11 +34,13 @@ ingredients = {
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"]
 }
 
+
 def ask():
-    try: 
-        print('Please anwser the following questions with a y|yes or n|no.')
+    try:
+        print('Please anwser with a y or yes for what you like.')
+        print('any key if you don\'t like it ')
         for x in questions.keys():
-            respond=raw_input(questions[x])
+            respond = raw_input(questions[x])
             if respond.lower() == 'y' or respond.lower() == 'yes':
                 like[x] = 'True'
         return like
@@ -46,19 +48,21 @@ def ask():
     except Exception:
         pass
 
+
 def createdrink(like):
     try:
         if len(like) == 0:
             print('\n\nLooks like someone is not thirty!')
 
         print('\n\n')
-        for y,z in like.items():
+        for y, z in like.items():
             print random.choice(ingredients[y])
 
         print('\n\n')
 
     except Exception:
         pass
+
 
 def __main__():
     for x in questions.keys():
@@ -67,14 +71,8 @@ def __main__():
     createdrink(like)
 
 
-
-
-
 if __main__ == '__main__':
     __main__()
 
 ask()
 createdrink(like)
-## TODO  create main function
-
-
