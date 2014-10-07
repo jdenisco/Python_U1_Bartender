@@ -17,7 +17,6 @@ Description:
 """
 import random
 
-like = {}
 questions = {
     "strong": "Do ye like yer drinks strong?",
     "salty": "Do ye like it with a salty tang?",
@@ -37,6 +36,7 @@ ingredients = {
 
 def ask():
     try:
+        like = {}
         print('Please anwser with a y or yes for what you like.')
         print('any key if you don\'t like it ')
         for x in questions.keys():
@@ -64,15 +64,13 @@ def createdrink(like):
         pass
 
 
-def __main__():
-    for x in questions.keys():
-        if random.choice(['True', 'False']) == 'True':
-            like[x] = 'True'
-    createdrink(like)
+def main():
+#    for x in questions.keys():
+#        if random.choice(['True', 'False']) == 'True':
+#            like[x] = 'True'
+     like = ask()
+     createdrink(like)
 
 
-if __main__ == '__main__':
-    __main__()
-
-ask()
-createdrink(like)
+if __name__ == '__main__':
+    main()
